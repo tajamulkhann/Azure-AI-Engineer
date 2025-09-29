@@ -1,3 +1,5 @@
+# OpenAI Models Overview
+
 | Use Case / Modality         | Model Name(s) / Family                              | Example Client Code                  |
 |------------------------------|-----------------------------------------------------|--------------------------------------|
 | **Chat / Text Generation**  | gpt-4, gpt-4o, gpt-4o-mini, gpt-3.5-turbo           | `client.chat.completions.create()`   |
