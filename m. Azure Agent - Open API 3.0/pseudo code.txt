@@ -1,0 +1,34 @@
+1. Authenticate to Azure using ClientSecretCredential 
+   (Tenant ID, Client ID, Client Secret).
+
+2. Initialize the Azure AI Project Client 
+   with connection string credentials.
+
+3. Load the OpenAPI specification file (openapi.json) 
+   which defines the API endpoints and schema.
+
+4. Retrieve available connections from Azure 
+   and find the connection ID for "yahoo-finance".
+
+5. Create authentication details for the OpenAPI tool 
+   using the Yahoo Finance connection ID.
+
+6. Initialize the OpenAPI tool with:
+   - Name: getYahooFinanceData
+   - Description: Fetch stock and financial market data
+   - Auth: Yahoo Finance connection details
+
+7. Create an AI Agent using GPT-4 model 
+   that uses this OpenAPI tool for real-time finance insights.
+
+8. Create a chat thread for interaction.
+
+9. Start a loop to chat with the agent:
+   - Take user input (e.g., “Show Apple stock price”)
+   - Send the message to the agent
+   - Process the run and wait for a response
+   - Print the agent’s answer
+
+10. Handle any runtime errors gracefully.
+
+11. Delete the agent at the end to free resources.
