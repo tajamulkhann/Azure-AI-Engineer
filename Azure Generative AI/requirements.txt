@@ -1,0 +1,8 @@
+python-dotenv       # Manage secrets via .env  
+langchain           # LLM app framework  
+langchain-openai    # OpenAI integration for LangChain  
+openai              # Official OpenAI client SDK  
+numpy               # Math & array ops  
+azure-data-tables   # Work with Azure Table Storage  
+langchain-community # Extra LangChain connectors/tools  
+ragas             # RAGAS: Retrieval-Augmented Generation for Azure Search

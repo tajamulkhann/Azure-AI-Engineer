@@ -1,2 +1,0 @@
-semantic_kernel[azure] == 1.34.0
-python-dotenv

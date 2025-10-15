@@ -1,0 +1,11 @@
+1. Import Azure libraries and authenticate using DefaultAzureCredential.
+
+2. Connect to the Azure AI Project using the project connection string.
+
+3. Create an AI agent using GPT-4 model with given instructions.
+
+4. Create a conversation thread (like a chat session).
+
+5. Add a user message to the thread — e.g., "Who is PM of India?"
+
+6. Run the agent to process the message and generate a response.

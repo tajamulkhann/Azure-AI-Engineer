@@ -1,0 +1,28 @@
+1. Authenticate using Azure ClientSecretCredential 
+   (Tenant ID, Client ID, and Client Secret).
+
+2. Connect to Azure AI Project using connection string.
+
+3. Upload a CSV file (e.g., "sales_data.csv") 
+   to be used by the AI agent for analysis.
+
+4. Create a GPT-based AI agent with:
+   - Model: gpt-4o-mini
+   - Role: Perform data analysis and visualization
+   - Tools: Code Interpreter linked to the uploaded file
+
+5. Create a chat thread for interaction.
+
+6. Start a loop where the user can send messages (like chat).
+
+7. For each message:
+   - Add it to the thread
+   - Run the agent to process and respond
+   - If run fails, show the error
+   - Display the AI agent’s text response
+   - If the response contains images (like charts), 
+     download and save them locally.
+
+8. End the loop when the user types “end”.
+
+9. Delete the agent to free up resources.
