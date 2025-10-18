@@ -126,7 +126,7 @@ print(answer)
 | **Chat / Model Deployment** | Azure OpenAI chat / LLM      | Deployment name, endpoint, API key, model version, temperature     |
 | **Azure AI Search**         | Semantic search / vector DB  | Service name, index name, API key, embedding field, top_k          |
 | **Retriever**               | Fetch relevant docs          | Uses Azure AI Search; configured with embedding function and top_k |
-| **RAG Pipeline / QA Chain** | Combines retriever + LLM     | Configured with chat model, retriever, chain type ("stuff", etc.)  |
+| **RAG Pipeline / QA Chain** | Retriever + Query + LLM      | Configured with chat model, retriever, chain type ("stuff", etc.)  |
 
 #### ✅ Sequence / Flow:
 
