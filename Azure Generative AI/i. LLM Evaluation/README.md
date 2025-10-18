@@ -1,12 +1,33 @@
 ## 🧠 LLM Evaluation Metrics
 
-| **Category**                  | **Metric**                     | **Description**                                                                                         | **Purpose**                                              |
-| ----------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| **1️⃣ Retriever Performance** | **Hit Rate**                   | Checks if at least one retrieved document contains the *ground-truth (gold answer)*.                    | Ensures retriever returns relevant context.              |
-|                               | **MRR (Mean Reciprocal Rank)** | Measures how high the *first relevant document* appears in the ranking. (Higher = Better)               | Evaluates ranking quality of retrieved docs.             |
-|                               | **Context Precision/Recall**   | Precision: % of retrieved docs that are relevant.<br>Recall: % of relevant docs successfully retrieved. | Checks retriever’s ability to surface the right context. |
-| **2️⃣ Generator Performance** | **Answer Relevancy**           | Measures if the generated answer actually addresses the query. (LLM-as-judge / semantic similarity)     | Tests how relevant and on-topic the model’s response is. |
-|                               | **Faithfulness**               | Checks if the generated answer is *grounded in retrieved documents* (no hallucinations).                | Ensures the model uses the retrieved context properly.   |
+### 1️⃣ Retriever Evaluation
+You’re testing: Did the retriever fetch the right context documents?
+
+| Metric                         | What it Measures                                                       | How to Evaluate Practically                                                                                                 |
+| ------------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **Hit Rate**                   | Whether at least one retrieved doc contains the correct (gold) answer. | For each query: check if any of the top-k retrieved docs contain the gold answer → compute % of queries where this is true. |
+| **MRR (Mean Reciprocal Rank)** | Rank position of the first relevant doc.                               | For each query: `1 / rank_of_first_relevant_doc`. Average across all queries.                                               |
+| **Precision / Recall**         | How many retrieved docs are relevant vs missed.                        | Compare retrieved docs vs. gold-labeled relevant docs. Compute Precision = TP/(TP+FP), Recall = TP/(TP+FN).                 |
+
+#### 📦 Implementation Tools:
+
+- LangChain → langchain.evaluation module
+- ragas (by HuggingFace) → built-in retriever metrics (context_precision, context_recall, mrr)
+- Custom Python logic with embedding similarity (e.g., cosine similarity > threshold = relevant).
+
+### 2️⃣ Generator Evaluation
+You’re testing: Did the LLM use context correctly and produce a truthful, relevant answer?
+
+| Metric               | What it Measures                                                                      | How to Evaluate Practically                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Answer Relevancy** | How well the generated answer addresses the question.                                 | Use LLM-as-a-judge (e.g., GPT-4) or semantic similarity between generated answer and gold answer.                                        |
+| **Faithfulness**     | Whether the answer’s statements are grounded in retrieved context (no hallucination). | Check if each claim in the answer can be found (or supported) in the retrieved documents. Tools like `ragas.faithfulness` automate this. |
+
+#### 📦 Implementation Tools:
+
+- 🤗 Ragas → faithfulness, answer_relevancy, context_precision, etc.
+- 🧪 TruLens → Evaluate with trulens_eval decorators (@instrument) to log and score LLM responses.
+- 🧠 LLM-as-Judge → Use a model (like GPT-4) to score each generated answer on a 1-5 scale for relevance and factuality.
 
 ## Code
 ```python
