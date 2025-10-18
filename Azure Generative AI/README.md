@@ -100,6 +100,33 @@ answer = qa_chain.run(query)
 print(answer)
 ```
 
+### Step 9️⃣: Evaluate LLM Performance
+
+
+| **Category**                  | **Metric**                     | **Description**                                                                                         | **Purpose**                                              |
+| ----------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| ** Retriever Performance** | **Hit Rate**                   | Checks if at least one retrieved document contains the ground-truth (gold answer).                      | Ensures retriever returns relevant context.              |
+|                               | **MRR (Mean Reciprocal Rank)** | Measures how high the first relevant document appears in the ranking. (Higher = Better)                 | Evaluates ranking quality of retrieved docs.             |
+|                               | **Context Precision/Recall**   | Precision: % of retrieved docs that are relevant.<br>Recall: % of relevant docs successfully retrieved. | Checks retriever’s ability to surface the right context. |
+| ** Generator Performance** | **Answer Relevancy**           | Measures if the generated answer actually addresses the query. *(LLM-as-judge / semantic similarity)*   | Tests how relevant and on-topic the model’s response is. |
+|                               | **Faithfulness**               | Checks if the generated answer is grounded in retrieved documents *(no hallucinations).*                | Ensures the model uses the retrieved context properly.   |
+
+
+```python
+# Example using Ragas
+from datasets import load_dataset
+from ragas import evaluate
+from ragas.metrics import faithfulness, answer_relevancy, context_precision
+
+dataset = load_dataset("my_rag_results")  # your RAG eval dataset
+results = evaluate(
+    dataset=dataset,
+    metrics=[faithfulness, answer_relevancy, context_precision]
+)
+print(results)
+```
+
+
 ### Summary
 | Step | Purpose                                                    |
 | ---- | ---------------------------------------------------------- |
@@ -111,3 +138,4 @@ print(answer)
 | 6    | Initialize Azure OpenAI chat model                         |
 | 7    | Combine retriever + chat model into a RAG QA chain         |
 | 8    | Ask a query → model returns answer using retrieved context |
+| 9    | Evalaute LLM + RAG Performance|
