@@ -76,6 +76,24 @@ print(response.choices[0].message.content)
 
 - Retrieve top-k similar documents from Azure Cognitive Search index.
 
+```python
+def retrieve_top_k(query: str, k: int = 5):
+    """Retrieve top-k similar documents from Azure Cognitive Search"""
+    # 1️⃣ Get embedding of the query
+    query_vector = get_embedding(query)
+
+    # 2️⃣ Use vector search in Azure Cognitive Search
+    results = search_client.search(
+        vector=query_vector,
+        top=k,
+        vector_fields="embedding_vector"  # The field where your vectors are stored
+    )
+
+    # 3️⃣ Extract and return documents
+    docs = [doc["content"] for doc in results]
+    return docs
+```
+
 ### Step 5: Augmented Generation (RAG Chain)
 ```python
 from langchain.schema import RunnablePassthrough, StrOutputParser
