@@ -39,7 +39,8 @@
 | **Marketing Automation** | Plans, executes, and tracks campaigns autonomously.         |
 
 ### Pseudo Code
-```# Initialize agent
+```python
+# Initialize agent
 agent = AgenticAI(goal="Generate weekly sales report")
 
 # Add skills
@@ -54,7 +55,8 @@ agent.connect_data("my_sales_data.csv")
 report = agent.run_workflow()
 
 # Send report via email
-agent.function_call("send_email", to="manager@example.com", attachment=report)```
+agent.function_call("send_email", to="manager@example.com", attachment=report)
+```
 
 ### 6️⃣ Pro Tips
 
