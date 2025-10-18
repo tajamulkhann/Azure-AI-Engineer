@@ -117,6 +117,7 @@ print(answer)
 ```
 
 ### Process:
+<img width="1934" height="910" alt="image" src="https://github.com/tajamulkhann/Azure-AI-Engineer/blob/main/Azure%20Generative%20AI/d.%20Azure%20AI%20%2B%20RAG/Working%20of%20Azure%20AI%20%2B%20RAG.png" />
 
 - Retriever: Fetch relevant vectors/documents from search.
 - Format Docs: Prepare retrieved docs as context.
