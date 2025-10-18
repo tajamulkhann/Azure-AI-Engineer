@@ -119,12 +119,23 @@ print(answer)
 ### Process:
 <img width="1934" height="910" alt="image" src="https://github.com/tajamulkhann/Azure-AI-Engineer/blob/main/Azure%20Generative%20AI/d.%20Azure%20AI%20%2B%20RAG/Working%20of%20Azure%20AI%20%2B%20RAG.png" />
 
-- Retriever: Fetch relevant vectors/documents from search.
-- Format Docs: Prepare retrieved docs as context.
-- Prompt: Combine query + context for LLM.
-- Model: Azure OpenAI generates context-aware response.
-- Output Parser: Return clean string output.
+| Component                   | Type / Purpose               | Required Info / Notes                                              |
+| --------------------------- | ---------------------------- | ------------------------------------------------------------------ |
+| **Storage Account**         | Document storage             | Account name, container, access key/connection string              |
+| **Embedding Deployment**    | Azure OpenAI embedding model | Deployment name, endpoint, API key, model version                  |
+| **Chat / Model Deployment** | Azure OpenAI chat / LLM      | Deployment name, endpoint, API key, model version, temperature     |
+| **Azure AI Search**         | Semantic search / vector DB  | Service name, index name, API key, embedding field, top_k          |
+| **Retriever**               | Fetch relevant docs          | Uses Azure AI Search; configured with embedding function and top_k |
+| **RAG Pipeline / QA Chain** | Combines retriever + LLM     | Configured with chat model, retriever, chain type ("stuff", etc.)  |
 
+#### ✅ Sequence / Flow:
+
+- Storage Account → store raw documents
+- Embedding Deployment → create embeddings of chunks
+- Azure AI Search → index vectors for retrieval
+- Retriever → fetch relevant docs
+- Chat Deployment → generate context-aware answer
+  
 ✅ Key Benefits:
 
 - Retrieval logic is fully handled by AzureAISearchRetriever.
