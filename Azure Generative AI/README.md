@@ -91,23 +91,15 @@ rag_chain = (
 ### Process:
 
 - Retriever: Fetch relevant vectors/documents from search.
-
 - Format Docs: Prepare retrieved docs as context.
-
 - Prompt: Combine query + context for LLM.
-
 - Model: Azure OpenAI generates context-aware response.
-
 - Output Parser: Return clean string output.
 
 ### 🔹 Key Takeaways
 
 - Azure OpenAI + Cognitive Search enables semantic search + intelligent generation.
-
 - Embeddings are crucial for accurate retrieval.
-
 - Index type affects speed and accuracy: HNSW recommended for large datasets.
-
 - Use unique IDs for each document vector in the datastore.
-
 - Fully modular: add new documents or change model deployments easily.
