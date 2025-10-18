@@ -1,49 +1,19 @@
-🧠 Project Goal
+## 🧠 Project Goal
 
 Automate and optimize social media posts using Azure OpenAI & Semantic Kernel multi-agent orchestration.
 
-⚙️ Pseudo-code in Steps
+| Step                             | Description                                              | Pseudo-code                                                |
+| -------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------- |
+| 1️⃣ Import Libraries             | Load AI orchestration & environment tools                | `import semantic_kernel, asyncio, dotenv`                  |
+| 2️⃣ Load Environment Variables   | Load Azure credentials                                   | `dotenv.load_dotenv(); API_KEY=...; ENDPOINT=...`          |
+| 3️⃣ Test Azure OpenAI Connection | Check model availability                                 | `client = AzureChatCompletion(...); client.test()`         |
+| 4️⃣ Define Multiple Agents       | Create agents for analysis, optimization, and review     | `AnalyzerAgent`, `OptimizerAgent`, `ReviewerAgent`         |
+| 5️⃣ Create Orchestration         | Run agents sequentially, passing output from one to next | `SequentialOrchestration([Analyzer, Optimizer, Reviewer])` |
+| 6️⃣ Set up Runtime               | Initialize execution environment                         | `runtime = InProcessRuntime()`                             |
+| 7️⃣ Pass a Business Post         | Input sample post into agent pipeline                    | `output = runtime.run(post)`                               |
+| 8️⃣ Collect Final Output         | Get refined post after all agents                        | `print(final_post)`                                        |
+| 9️⃣ Handle Errors                | Ensure graceful shutdown                                 | `try: ... except: runtime.stop()`                          |
 
-1️⃣ Import Libraries
+### Summary (One Line)
 
-Load semantic_kernel, asyncio, and dotenv for AI orchestration and environment setup.
-
-2️⃣ Load Environment Variables
-
-Load Azure credentials (API_KEY, ENDPOINT, DEPLOYMENT_NAME, API_VERSION) from .env.
-
-3️⃣ Test Azure OpenAI Connection
-
-Initialize AzureChatCompletion and check if the model is accessible.
-
-4️⃣ Define Multiple Agents
-
-Analyzer Agent: Reviews tone, engagement, and target audience.
-
-Optimizer Agent: Rewrites the post for better engagement (adds hashtags, emojis).
-
-Reviewer Agent: Final grammar and style polishing.
-
-5️⃣ Create Orchestration
-
-Use SequentialOrchestration to run agents step-by-step — output of one becomes input to the next.
-
-6️⃣ Set up Runtime
-
-Initialize InProcessRuntime() to execute agents.
-
-7️⃣ Pass a Business Post
-
-Input a sample post → sent through the pipeline of agents sequentially.
-
-8️⃣ Collect and Print Final Optimized Output
-
-Get the final post after all three agents refine it.
-
-9️⃣ Handle Errors and Stop Runtime
-
-Ensure graceful shutdown and error handling.
-
-🧩 In one line:
-
-“It’s a multi-agent AI workflow using Semantic Kernel where each agent (Analyzer → Optimizer → Reviewer) collaboratively enhances a social media post using Azure OpenAI.”
+A multi-agent AI workflow using Semantic Kernel where each agent (Analyzer → Optimizer → Reviewer) collaboratively enhances a social media post using Azure OpenAI.
