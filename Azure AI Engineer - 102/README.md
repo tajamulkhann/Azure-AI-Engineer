@@ -10,6 +10,7 @@
 - My mistakes (so you can avoid them)
 
 ## 📅 Book a 1:1 Guidance Session
-## [📞 Book a Call Now](https://topmate.io/tajamulkhan/358169?utm_source=public_profile&utm_campaign=tajamulkhan)
+[👉 Book a Call Now](https://topmate.io/tajamulkhan/358169?utm_source=public_profile&utm_campaign=tajamulkhan)
+
 <img width="1080" height="1080" alt="image" src="https://github.com/user-attachments/assets/1edfdfac-a8a1-412a-b628-a9ff0347e0b8" />
 
