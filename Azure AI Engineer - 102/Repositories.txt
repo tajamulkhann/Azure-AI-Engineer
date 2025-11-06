@@ -1,0 +1,21 @@
+mslearn-ai-vision – https://github.com/MicrosoftLearning/mslearn-ai-vision
+
+mslearn-ai-language – https://github.com/MicrosoftLearning/mslearn-ai-language
+
+mslearn-ai-studio – https://github.com/MicrosoftLearning/mslearn-ai-studio
+
+mslearn-ai-document-intelligence – https://github.com/MicrosoftLearning/mslearn-ai-document-intelligence
+
+mslearn-ai-agents – https://github.com/MicrosoftLearning/mslearn-ai-agents
+
+mslearn-generative-ai – https://github.com/MicrosoftLearning/mslearn-generative-ai
+
+Additional References:
+
+[1] https://github.com/MicrosoftLearning/mslearn-ai-vision?utm_source=chatgpt.com
+
+[2] https://microsoftlearning.github.io/mslearn-ai-language/?utm_source=chatgpt.com
+
+[3] https://github.com/MicrosoftLearning/mslearn-ai-studio?utm_source=chatgpt.com
+
+[4] https://github.com/MicrosoftLearning/mslearn-ai-agents?utm_source=chatgpt.com
